@@ -14,6 +14,9 @@ module Locators
     MORTGAGE_TERM_TEXT = 'form[action="/kalkulyator-ipoteki"] :nth-child(10) > div:first-of-type'
     PAYMENT_RADIOBUTTON_TEXT = 'form[action="/kalkulyator-ipoteki"] :nth-child(13) > div:first-of-type'
 
+    MORTGAGE_RESULT = '.calc-input-desc.start_sum_equiv'
+    LOAN_SUM_RESULT = '.credit_sum_value'
+
     REAL_ESTATE_COST_TEXTBOX = '[name="cost"]'
     MORTGAGE_DOWN_PAYMENT_TEXTBOX = '[name="start_sum"]'
     RUB_CURRENCY_OR_PERCENTAGE_DROPDOWN = 'select[name="start_sum_type"]'

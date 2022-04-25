@@ -1,7 +1,8 @@
 begin
 
   require 'selenium-webdriver'
-  require '../pages/mortgage_calc_page'
+  require '/home/developer/RubymineProjects/AlfaBankRubyAuto/src/test/ruby/AlfaBankAutomation/utils.rb'
+  require '/home/developer/RubymineProjects/AlfaBankRubyAuto/src/test/resources/features/AlfaBankAutomation/pages/mortgage_calc_page.rb'
 
   Before('@Annuity_Payment_Calc') do
     @mortgage_website = MortgageCalc.new
@@ -16,11 +17,12 @@ begin
   end
 
   Before('@Annuity_Payment_Calc') do
-    @utils = Utils.new
+    @util = Utils.new
+
   end
 
   Before('@Annuity_Payment_Calc') do
-    @rate = @utils.generate_random_interest_rate
+    @rate = @util.generate_random_interest_rate
   end
 
   After('@Annuity_Payment_Calc') do
@@ -30,8 +32,8 @@ begin
   After do
   end
 
-  Given(/^I open (.*)$/) do |website|
-    @driver.get(website)
+  Given(/^I open website$/) do
+    @driver.get 'https://calcus.ru/kalkulyator-ipoteki'
   end
 
   # Я категорически против проверок на существование текстовых полей в GIVEN части.
@@ -70,27 +72,28 @@ begin
     @mortgage_website.payment_radiobtn_text_exists(@driver)
   end
 
-  And(/^I have entered (.*) price$/) do |real_estate_cost|
-    @mortgage_website.enter_real_estate_cost(@driver, real_estate_cost)
-  end
+  And(/^I have entered real_estate_cost price$/) do
 
-  And(/^I have entered (.*) payment$/) do |mortgage_down_payment|
-    @mortgage_website.enter_mortgage_down_payment(@driver, mortgage_down_payment)
+    @mortgage_website.enter_real_estate_cost(@driver, 12_000_000)
   end
 
   And(/^I have selected percentage from RUB_currency_or_percentage dropdown window$/) do
     @mortgage_website.select_percent_from_dropdown(@driver)
   end
 
-  And(/^I have entered (.*) term$/) do |mortgage_term|
-    @mortgage_website.enter_mortgage_term(@driver, mortgage_term)
+  And(/^I have entered mortgage_down_payment payment$/) do
+    @mortgage_website.enter_mortgage_down_payment(@driver, 20)
+  end
+
+  And(/^I have entered mortgage_term term$/) do
+    @mortgage_website.enter_mortgage_term(@driver, 20)
   end
 
   And(/^I have selected years from years_or_months dropdown window$/) do
     @mortgage_website.select_year_from_dropdown(@driver)
   end
 
-  And(/^I have entered (.*)$/) do |interest_rate = @rate|
+  And(/^I have entered interest_rate$/) do |interest_rate = @rate|
     number = interest_rate
     @mortgage_website.enter_interest_rate(@driver, interest_rate)
   end
@@ -103,8 +106,8 @@ begin
     @mortgage_website.click_submit_button(@driver)
   end
 
-  Then(/^the monhtly_payment should be equal to (.*) on the screen$/) do |calculation = @utils.calculate_result(@rate)|
-    @mortgage_website.find_and_compare_calc_result(@driver, calculation)
+  Then(/^the monhtly_payment should be equal to calculation on the screen$/) do
+    @mortgage_website.find_and_compare_calc_result(@driver, @util.calculate_result(@rate))
   end
 end
 
