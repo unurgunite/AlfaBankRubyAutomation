@@ -1,8 +1,8 @@
 begin
 
   require 'selenium-webdriver'
-  require '/home/developer/RubymineProjects/AlfaBankRubyAuto/src/test/ruby/AlfaBankAutomation/utils.rb'
-  require '/home/developer/RubymineProjects/AlfaBankRubyAuto/src/test/resources/features/AlfaBankAutomation/pages/mortgage_calc_page.rb'
+  require_relative '../../../../ruby/AlfaBankAutomation/utils'
+  require_relative '../pages/mortgage_calc_page'
 
   Before('@Annuity_Payment_Calc') do
     @mortgage_website = MortgageCalc.new

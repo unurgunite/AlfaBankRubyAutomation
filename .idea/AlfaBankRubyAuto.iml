@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/features" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="true" />
     </content>
     <orderEntry type="jdk" jdkName="ruby-3.0.4-p208" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
