@@ -18,7 +18,6 @@ begin
 
   Before('@Annuity_Payment_Calc') do
     @util = Utils.new
-
   end
 
   Before('@Annuity_Payment_Calc') do
@@ -94,7 +93,6 @@ begin
   end
 
   And(/^I have entered interest_rate$/) do |interest_rate = @rate|
-    number = interest_rate
     @mortgage_website.enter_interest_rate(@driver, interest_rate)
   end
 
@@ -110,4 +108,3 @@ begin
     @mortgage_website.find_and_compare_calc_result(@driver, @util.calculate_result(@rate))
   end
 end
-

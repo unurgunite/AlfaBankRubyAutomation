@@ -94,7 +94,6 @@ class MortgageCalc < Locators::MortgageCalcLocators
     if driver.find_element(:css, DIFFERENTIAL_RADIOBUTTON).attribute('checked')
       raise 'DIFFERENTIAL RADIOBUTTON IS CHECKED'
     end
-    
   end
 
   def click_submit_button(driver)
@@ -118,7 +117,3 @@ class MortgageCalc < Locators::MortgageCalcLocators
     puts '___________TEST OK :)________________'
   end
 end
-#
-# test = MortgageCalc.new
-#
-# test.header_exists

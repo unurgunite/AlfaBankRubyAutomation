@@ -31,6 +31,5 @@ module Locators
     DIFFERENTIAL_RADIOBUTTON = '[for="payment-type-2"]'
     SUBMIT_BUTTON = 'input[class="calc-submit"]'
     CALCULATION_RESULT_MONTHLY_PAYMENT_TEXT = '.calc-result-value.result-placeholder-monthlyPayment'
-
   end
 end

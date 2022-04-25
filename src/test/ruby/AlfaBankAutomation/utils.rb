@@ -1,4 +1,3 @@
-
 class Utils
 
   def calculate_result(rate)
@@ -6,11 +5,7 @@ class Utils
     i = (rate / 12.0) / 100.0
     period_months = 20 * 12
     koef = (i * ((i + 1)**period_months)) / (((i + 1)**period_months) - 1)
-    number = sum * koef
-
-    # number.round(2)
-    # print(number)
-    # print(number.class)
+    sum * koef
   end
 
   def generate_random_interest_rate
@@ -18,7 +13,3 @@ class Utils
     number.round(2)
   end
 end
-
-# a = Utils.new
-#
-# print(a.calculate_result(5))
