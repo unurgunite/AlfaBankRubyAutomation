@@ -5,6 +5,10 @@ source "https://rubygems.org"
 # gem "rails"
 #
 #
-gem 'selenium'
+
+# gem 'selenium'
 gem 'cucumber'
-gem 'capybara'
+# gem 'capybara'
+gem 'selenium-webdriver'
+# gem 'site_prism'
+gem 'rubocop'
