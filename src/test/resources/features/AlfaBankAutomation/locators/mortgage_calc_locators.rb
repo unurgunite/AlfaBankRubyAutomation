@@ -4,6 +4,16 @@ module Locators
 
   class MortgageCalcLocators
 
+    HEADER = 'h1:first-of-type'
+    BY_PRICE_LINK = '[data-autofocus="cost"]'
+    BY_LOAN_AMOUNT_LINK = '[data-autofocus="credit_sum"]'
+    ESTATE_PRICE_TEXT = 'form[action="/kalkulyator-ipoteki"] :nth-child(6) > div:first-of-type'
+    DOWN_PAYMENT_TEXT = 'form[action="/kalkulyator-ipoteki"] :nth-child(7) > div:first-of-type'
+    LOAN_SUM_TEXT = 'form[action="/kalkulyator-ipoteki"] :nth-child(8) > div:first-of-type'
+    INTEREST_RATE_TEXT = 'form[action="/kalkulyator-ipoteki"] :nth-child(12) > div:first-of-type'
+    MORTGAGE_TERM_TEXT = 'form[action="/kalkulyator-ipoteki"] :nth-child(10) > div:first-of-type'
+    PAYMENT_RADIOBUTTON_TEXT = 'form[action="/kalkulyator-ipoteki"] :nth-child(13) > div:first-of-type'
+
     REAL_ESTATE_COST_TEXTBOX = '[name="cost"]'
     MORTGAGE_DOWN_PAYMENT_TEXTBOX = '[name="start_sum"]'
     RUB_CURRENCY_OR_PERCENTAGE_DROPDOWN = 'select[name="start_sum_type"]'
