@@ -1,5 +1,6 @@
-class Utils
+# frozen_string_literal: true
 
+class Utils
   def calculate_result(rate)
     sum = 9_600_000
     i = (rate / 12.0) / 100.0

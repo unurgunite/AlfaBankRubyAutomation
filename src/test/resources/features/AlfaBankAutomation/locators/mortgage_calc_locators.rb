@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Locators
-
   class MortgageCalcLocators
-
     HEADER = 'h1:first-of-type'
     BY_PRICE_LINK = '[data-autofocus="cost"]'
     BY_LOAN_AMOUNT_LINK = '[data-autofocus="credit_sum"]'

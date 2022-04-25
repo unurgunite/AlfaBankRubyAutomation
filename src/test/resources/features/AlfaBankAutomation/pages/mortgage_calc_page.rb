@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require_relative '../locators/mortgage_calc_locators'
 require 'selenium-webdriver'
 
 class MortgageCalc < Locators::MortgageCalcLocators
-
   @@down_payment_should_be = 2_400_000
   @@loan_sum_should_be = 9_600_000
 
@@ -50,7 +51,6 @@ class MortgageCalc < Locators::MortgageCalcLocators
     element = driver.find_element(:css, REAL_ESTATE_COST_TEXTBOX)
     element.click
     element.send_keys(string)
-
   end
 
   def filter(input, allowed)
@@ -101,13 +101,12 @@ class MortgageCalc < Locators::MortgageCalcLocators
   end
 
   def find_and_compare_calc_result(driver, expected)
-
     wait = Selenium::WebDriver::Wait.new(timeout: 15)
 
-    result = wait.until {
+    result = wait.until do
       element = driver.find_element(:css, CALCULATION_RESULT_MONTHLY_PAYMENT_TEXT)
       element.text if element.displayed?
-    }
+    end
 
     result = result.gsub(/\s+/, '').gsub(',', '.').to_f
     expected = expected.round(2)

@@ -1,5 +1,6 @@
-begin
+# frozen_string_literal: true
 
+begin
   require 'selenium-webdriver'
   require_relative '../../../../ruby/AlfaBankAutomation/utils'
   require_relative '../pages/mortgage_calc_page'
@@ -72,7 +73,6 @@ begin
   end
 
   And(/^I have entered real_estate_cost price$/) do
-
     @mortgage_website.enter_real_estate_cost(@driver, 12_000_000)
   end
 
