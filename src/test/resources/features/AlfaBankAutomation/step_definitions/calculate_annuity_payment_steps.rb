@@ -8,7 +8,19 @@ begin
   end
 
   Before('@Annuity_Payment_Calc') do
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--disable-popup-blocking')
+    options.add_argument('--disable-translate')
+    @driver = Selenium::WebDriver.for :chrome, options: options
+  end
+
+  Before('@Annuity_Payment_Calc') do
     @utils = Utils.new
+  end
+
+  Before('@Annuity_Payment_Calc') do
+    @rate = @utils.generate_random_interest_rate
   end
 
   After('@Annuity_Payment_Calc') do
@@ -78,7 +90,8 @@ begin
     @mortgage_website.select_year_from_dropdown(@driver)
   end
 
-  And(/^I have entered (.*)$/) do |interest_rate = @utils.generate_random_interest_rate|
+  And(/^I have entered (.*)$/) do |interest_rate = @rate|
+    number = interest_rate
     @mortgage_website.enter_interest_rate(@driver, interest_rate)
   end
 
@@ -87,10 +100,10 @@ begin
   end
 
   When(/^I press submit button$/) do
-    pending
+    @mortgage_website.click_submit_button(@driver)
   end
 
-  Then(/^the monhtly_payment should be equal to (.*) on the screen$/) do |calculation = @utils.calculate_result|
+  Then(/^the monhtly_payment should be equal to (.*) on the screen$/) do |calculation = @utils.calculate_result(@rate)|
     @mortgage_website.find_and_compare_calc_result(@driver, calculation)
   end
 end

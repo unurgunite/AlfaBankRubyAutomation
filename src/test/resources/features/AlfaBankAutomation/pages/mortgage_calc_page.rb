@@ -77,9 +77,11 @@ class MortgageCalc < Locators::MortgageCalcLocators
   def click_submit_button(driver)
     driver.find_element(:css, SUBMIT_BUTTON).click
   end
+
+
   
   def find_and_compare_calc_result(driver, expected)
-    result = driver.find_element(:css, CALCULATION_RESULT_MONTHLY_PAYMENT_TEXT).text
+    result = driver.find_element(:css, CALCULATION_RESULT_MONTHLY_PAYMENT_TEXT).waittext
     
     if result != expected
       raise 'oof'
