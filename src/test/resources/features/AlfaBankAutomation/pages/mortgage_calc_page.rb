@@ -91,8 +91,10 @@ class MortgageCalc < Locators::MortgageCalcLocators
   end
 
   def select_annuity_radiobutton(driver)
-    driver.find_element(:css, ANNUITY_RADIOBUTTON).click
-    sleep(2)
+    if driver.find_element(:css, DIFFERENTIAL_RADIOBUTTON).attribute('checked')
+      raise 'DIFFERENTIAL RADIOBUTTON IS CHECKED'
+    end
+    
   end
 
   def click_submit_button(driver)
@@ -101,7 +103,7 @@ class MortgageCalc < Locators::MortgageCalcLocators
 
   def find_and_compare_calc_result(driver, expected)
 
-    wait = Selenium::WebDriver::Wait.new(:timeout => 15)
+    wait = Selenium::WebDriver::Wait.new(timeout: 15)
 
     result = wait.until {
       element = driver.find_element(:css, CALCULATION_RESULT_MONTHLY_PAYMENT_TEXT)
