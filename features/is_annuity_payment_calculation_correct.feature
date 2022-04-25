@@ -23,7 +23,7 @@ Feature: Calculate an annuity payment using https://calcus.ru/kalkulyator-ipotek
     And I have entered interest_rate
     And I have ticked the annuity radiobutton
     When I press submit button
-    Then the monhtly_payment should be equal to calculation on the screen
+    Then the monthly_payment should be equal to calculation on the screen
 
 #    Example:
 #      | real_estate_cost           | 12000000                              |
