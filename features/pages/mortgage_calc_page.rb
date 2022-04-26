@@ -11,7 +11,7 @@ class MortgageCalc < Locators::MortgageCalcLocators # :nodoc:
   Locators::MortgageCalcLocators.constants.each do |const|
     specs.each do |m|
       define_method m do |driver|
-        m.to_s.split('_').insert(-2, 'does not').join(' ') if driver.find_element(:css, const).nil?
+        raise m.to_s.split('_').insert(-2, 'does not').join(' ').chop if driver.find_element(:css, const).nil?
       end
     end
   end
