@@ -1,5 +1,5 @@
-require_relative '../locators/mortgage_calc_locators'
 require 'selenium-webdriver'
+require_relative '../locators/mortgage_calc_locators'
 
 class MortgageCalc < Locators::MortgageCalcLocators # :nodoc:
   @down_payment_should_be = 2_400_000
